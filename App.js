@@ -19,8 +19,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <MainNavigator.Navigator>
-        <MainNavigator.Screen name="Home" component={Businesses} />
-        <MainNavigator.Screen name="Profile" component={BusinessDetail} />
+        <MainNavigator.Screen name="Home" 
+          component={Businesses} 
+          options={{title: 'Company List'}} 
+        />
+        <MainNavigator.Screen name="Details" component={BusinessDetail} />
       </MainNavigator.Navigator>
     </NavigationContainer>
   );
