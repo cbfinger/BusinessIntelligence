@@ -1,26 +1,10 @@
 import * as React from 'react';
-import { FlatList, View} from 'react-native';
+import { FlatList, View, Text} from 'react-native';
 import { ListItem, ListItemProps} from 'react-native-elements';
 import companies from '../data.json';
 import styles from '../styles'
 
 companiesKeyExtractor = (item) => item.id
-companiesRenderItem = ({item}) => (
-  <ListItem key={item.id} 
-            bottomDivider 
-            chevron
-            button onPress = {() => {goToCompanyDetails(item)}}>
-    <ListItem.Content>
-      <ListItem.Title style = {styles.listItemTitle}>
-        {item.name}
-      </ListItem.Title>
-      <ListItem.Subtitle style= {styles.listItemSubtitle}>
-        {parseCompanyAddressString(item.location)}
-      </ListItem.Subtitle>
-    </ListItem.Content>
-  </ListItem>
-
-)
 
 function parseCompanyAddressString(companyLocation){
   return companyLocation.address + "\n" +
@@ -29,18 +13,47 @@ function parseCompanyAddressString(companyLocation){
 
 }
 
+function companyLastRevTextStyle(companyRev) {
+  lastRevMonth = companyRev[0].value
+  previousRevMonth = companyRev[1].value
+  if (lastRevMonth > previousRevMonth){
+    return styles.revItemPositive
+  }else {
+    return styles.revItemNegative
+  }
+}
+
+function getlastRev(companyRev) {
+  return companyRev[0].value
+}
+
 export default class Businesses extends React.Component {
  
   render() {
-    const goToCompanyDetails = (company) => {
-      this.props.navigation.navigate('Details')
-    }
      return (
        <View>
           <FlatList
             keyExtractor = {this.companiesKeyExtractor}
             data = {companies}
-            renderItem = {companiesRenderItem}
+            renderItem = {({item}) => (
+              <ListItem key={item.id} 
+                        containerStyle = {styles.listItem}
+                        button onPress = {() => {
+                          this.props.navigation.push('Details', {company: item})
+                        }}>
+                <ListItem.Content style = {styles.listItemContent}>
+                  <ListItem.Title style = {styles.listItemTitle}>
+                    {item.name}
+                  </ListItem.Title>
+                  <ListItem.Subtitle >
+                    <View style ={styles.listItemSubtileWrapper}>
+                      <Text style= {styles.listItemSubtitle}>{parseCompanyAddressString(item.location)}</Text>
+                      <Text style={companyLastRevTextStyle(item.revenue)}>{getlastRev(item.revenue)}</Text>
+                    </View>
+                  </ListItem.Subtitle>
+                </ListItem.Content>
+              </ListItem>
+            )}
             style = {styles.flatList}/>          
        </View>   
      )

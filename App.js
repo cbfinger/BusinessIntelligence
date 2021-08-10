@@ -12,16 +12,25 @@ import {createStackNavigator} from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import Businesses from './screens/Businesses';
 import BusinessDetail from './screens/BusinessDetail';
+import styles from './styles'
 
 const MainNavigator = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <MainNavigator.Navigator>
+      <MainNavigator.Navigator >
         <MainNavigator.Screen name="Home" 
           component={Businesses} 
-          options={{title: 'Company List'}} 
+          options={{title: 'Company List',
+                    headerStyle: {
+                      backgroundColor: '#435861',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                    fontWeight: 'bold',
+          },
+          }} 
         />
         <MainNavigator.Screen name="Details" component={BusinessDetail} />
       </MainNavigator.Navigator>
