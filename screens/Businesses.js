@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FlatList, View, Text} from 'react-native';
 import { ListItem, ListItemProps} from 'react-native-elements';
+import NumberFormat from 'react-number-format';
 import companies from '../data.json';
 import styles from '../styles'
 
@@ -48,7 +49,15 @@ export default class Businesses extends React.Component {
                   <ListItem.Subtitle >
                     <View style ={styles.listItemSubtileWrapper}>
                       <Text style= {styles.listItemSubtitle}>{parseCompanyAddressString(item.location)}</Text>
-                      <Text style={companyLastRevTextStyle(item.revenue)}>{getlastRev(item.revenue)}</Text>
+                      <NumberFormat
+                        value = {getlastRev(item.revenue)}
+                        thousandSeparator={true}
+                        displayType={'text'}
+                        prefix={'$'}
+                        renderText = {(value, props)=>
+                          <Text style={companyLastRevTextStyle(item.revenue)}>{value}</Text>
+                        }
+                        />
                     </View>
                   </ListItem.Subtitle>
                 </ListItem.Content>
