@@ -1,32 +1,12 @@
 import * as React from 'react';
 import { FlatList, View, Text} from 'react-native';
-import { ListItem, ListItemProps} from 'react-native-elements';
+import { ListItem} from 'react-native-elements';
 import NumberFormat from 'react-number-format';
 import companies from '../data.json';
-import styles from '../styles'
+import styles from '../styles/businessesStyles'
+import BusinessUtils from '../utils/BusinessUtils'
 
 companiesKeyExtractor = (item) => item.id
-
-function parseCompanyAddressString(companyLocation){
-  return companyLocation.address + "\n" +
-         companyLocation.city + ", " +
-         companyLocation.country
-
-}
-
-function companyLastRevTextStyle(companyRev) {
-  lastRevMonth = companyRev[0].value
-  previousRevMonth = companyRev[1].value
-  if (lastRevMonth > previousRevMonth){
-    return styles.revItemPositive
-  }else {
-    return styles.revItemNegative
-  }
-}
-
-function getlastRev(companyRev) {
-  return companyRev[0].value
-}
 
 export default class Businesses extends React.Component {
  
@@ -48,14 +28,16 @@ export default class Businesses extends React.Component {
                   </ListItem.Title>
                   <ListItem.Subtitle >
                     <View style ={styles.listItemSubtileWrapper}>
-                      <Text style= {styles.listItemSubtitle}>{parseCompanyAddressString(item.location)}</Text>
+                      <Text style= {styles.listItemSubtitle}>{
+                          BusinessUtils.parseCompanyAddressString(item.location)}
+                      </Text>
                       <NumberFormat
-                        value = {getlastRev(item.revenue)}
+                        value = {BusinessUtils.getlastRev(item.revenue)}
                         thousandSeparator={true}
                         displayType={'text'}
                         prefix={'$'}
                         renderText = {(value, props)=>
-                          <Text style={companyLastRevTextStyle(item.revenue)}>{value}</Text>
+                          <Text style={BusinessUtils.companyLastRevTextStyle(item.revenue)}>{value}</Text>
                         }
                         />
                     </View>
