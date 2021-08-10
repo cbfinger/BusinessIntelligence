@@ -14,6 +14,7 @@ export default class Businesses extends React.Component {
      return (
        <View>
           <FlatList
+            style = {styles.flatList}
             keyExtractor = {this.companiesKeyExtractor}
             data = {companies}
             renderItem = {({item}) => (
@@ -31,21 +32,13 @@ export default class Businesses extends React.Component {
                       <Text style= {styles.listItemSubtitle}>{
                           BusinessUtils.parseCompanyAddressString(item.location)}
                       </Text>
-                      <NumberFormat
-                        value = {BusinessUtils.getlastRev(item.revenue)}
-                        thousandSeparator={true}
-                        displayType={'text'}
-                        prefix={'$'}
-                        renderText = {(value, props)=>
-                          <Text style={BusinessUtils.companyLastRevTextStyle(item.revenue)}>{value}</Text>
-                        }
-                        />
+                      <BusinessUtils.RevFormattedView rev = {item.revenue}></BusinessUtils.RevFormattedView>
                     </View>
                   </ListItem.Subtitle>
                 </ListItem.Content>
               </ListItem>
             )}
-            style = {styles.flatList}/>          
+            />          
        </View>   
      )
   }

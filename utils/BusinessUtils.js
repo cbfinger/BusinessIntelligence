@@ -1,7 +1,23 @@
+import * as React from 'react';
+import { FlatList, View, Text} from 'react-native';
 import businessesStyles from '../styles/businessesStyles'
 import detailStyles from '../styles/businessDetailsStyles'
+import NumberFormat from 'react-number-format';
 
 export default class BusinessUtils {
+
+    static RevFormattedView = (props) => {
+        revenue = props.rev
+        return (<NumberFormat
+                value = {BusinessUtils.getlastRev(revenue)}
+                thousandSeparator={true}
+                displayType={'text'}
+                prefix={'$'}
+                renderText = {(value, props)=>
+                    <Text style={BusinessUtils.companyLastRevTextStyle(revenue)}>{value}</Text>
+                }/>)
+    }
+
     static parseCompanyAddressString = (companyLocation) => {
         return companyLocation.address + "\n" +
                companyLocation.city + ", " +
@@ -17,8 +33,12 @@ export default class BusinessUtils {
         }else {
           return businessesStyles.revItemNegative
         }
-      }
-      
+    }
+
+    static formatNumToCurrency = (number) => {
+        return '$' + number.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+  
     static getlastRev = (companyRevs) => {
         return companyRevs[0].value
     }
@@ -27,14 +47,14 @@ export default class BusinessUtils {
         bestRev =  companyRev.reduce(
                 (prev, current) => prev = prev.value > current.value ? prev : current, companyRev[0]
         );
-        return bestRev.date + " " + bestRev.value
+        return bestRev.date +  "\n \n" +this.formatNumToCurrency( bestRev.value )
     }
 
     static getWorstRevString(companyRev) {
         worstRev = companyRev.reduce(
             (prev, current) => prev = prev.value < current.value ? prev : current, companyRev[0]
         );
-        return worstRev.date + " " + worstRev.value
+        return worstRev.date + "\n \n" + this.formatNumToCurrency(worstRev.value)
     }
 
     static createCompanyDetailsViewModel = (company) => {
@@ -51,12 +71,12 @@ export default class BusinessUtils {
                 },
                 {
                     id:2,
-                    label: "Best Revenue",
+                    label: "Best Revenue:",
                     data: this.getBestRevString(company.revenue)
                 },
                 {
                     id:3,
-                    label: "Worst Revenue",
+                    label: "Worst Revenue:",
                     data: this.getWorstRevString(company.revenue)
                 },
             ]

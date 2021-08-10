@@ -11,21 +11,23 @@ export default class BusinessDetail extends React.Component {
     
     const company = this.props.route.params.company
     const viewModel = BusinessUtils.createCompanyDetailsViewModel(company)
-    console.log(viewModel);
     return <View style={styles.wrapper}>
         <View style={styles.chartWrapper}>
         </View>
         <View style={styles.contentWrapper}>
             <FlatList
+              style = {styles.flatList}
               keyExtractor = {this.modelKeyExtractor}
               data ={viewModel} 
               renderItem = {({item}) => (
-                  <ListItem key={item.id}>
+                  <ListItem key={item.id}
+                  containerStyle = {styles.listItem}>
                     <ListItem.Content>
-                    <View>
-                      <Text>{item.label}</Text>
-                      <Text>{item.data}</Text>
+                    <View style={styles.listItemWrapper}>
+                      <Text style={styles.itemViewLabel}>{item.label}</Text>
+                      <Text style={styles.itemViewValue}>{item.data}</Text>
                     </View>
+                    <View style={styles.separator}/>
                     </ListItem.Content>
                   </ListItem>
               )}>
