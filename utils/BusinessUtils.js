@@ -3,6 +3,7 @@ import { FlatList, View, Text} from 'react-native';
 import businessesStyles from '../styles/businessesStyles'
 import detailStyles from '../styles/businessDetailsStyles'
 import NumberFormat from 'react-number-format';
+import moment from 'moment';
 
 export default class BusinessUtils {
 
@@ -43,18 +44,23 @@ export default class BusinessUtils {
         return companyRevs[0].value
     }
 
+    static formatLocaleDate = (date) => {
+        moment.locale('en')
+        return moment(date).format('MMMM Do YYYY')
+    }
+
     static getBestRevString = (companyRev) => {
         bestRev =  companyRev.reduce(
                 (prev, current) => prev = prev.value > current.value ? prev : current, companyRev[0]
         );
-        return bestRev.date +  "\n \n" +this.formatNumToCurrency( bestRev.value )
+        return this.formatLocaleDate(bestRev.date) +  "\n \n" +this.formatNumToCurrency( bestRev.value )
     }
 
     static getWorstRevString(companyRev) {
         worstRev = companyRev.reduce(
             (prev, current) => prev = prev.value < current.value ? prev : current, companyRev[0]
         );
-        return worstRev.date + "\n \n" + this.formatNumToCurrency(worstRev.value)
+        return this.formatLocaleDate(worstRev.date) + "\n \n" + this.formatNumToCurrency(worstRev.value)
     }
 
     static createCompanyDetailsViewModel = (company) => {
