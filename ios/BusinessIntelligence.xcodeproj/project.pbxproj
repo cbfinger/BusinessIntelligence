@@ -17,6 +17,9 @@
 		2DCD954D1E0B4F2C00145EB5 /* BusinessIntelligenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BusinessIntelligenceTests.m */; };
 		535FDDCDBDCDFD184C6F5924 /* libPods-BusinessIntelligence-BusinessIntelligenceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A58C4BD662BD0E954D918F /* libPods-BusinessIntelligence-BusinessIntelligenceTests.a */; };
 		6D6D757E99570A5EAC315F3D /* libPods-BusinessIntelligence.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B435BCE0A5593DE12551EC /* libPods-BusinessIntelligence.a */; };
+		80E7160826C4386D00FB5B27 /* RNChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E7160726C4386D00FB5B27 /* RNChartManager.m */; };
+		80E7160E26C439CF00FB5B27 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E7160D26C439CF00FB5B27 /* BarChart.swift */; };
+		80E7161426C61A3800FB5B27 /* RevenueEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E7161326C61A3800FB5B27 /* RevenueEntry.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9C4AB8235AFDC173C3938361 /* libPods-BusinessIntelligence-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7E546C97F5404835767D97 /* libPods-BusinessIntelligence-tvOS.a */; };
 		FDB687ADE1D69EF7CAB7D0BC /* libPods-BusinessIntelligence-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A221ACC2FC4A6926D385A8A /* libPods-BusinessIntelligence-tvOSTests.a */; };
@@ -57,6 +60,10 @@
 		2D02E4901E0B4A5D006451C7 /* BusinessIntelligence-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BusinessIntelligence-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7E546C97F5404835767D97 /* libPods-BusinessIntelligence-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BusinessIntelligence-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		635CB83FC3FDBC377E8A9BDA /* Pods-BusinessIntelligence-BusinessIntelligenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinessIntelligence-BusinessIntelligenceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusinessIntelligence-BusinessIntelligenceTests/Pods-BusinessIntelligence-BusinessIntelligenceTests.release.xcconfig"; sourceTree = "<group>"; };
+		80E715C426C4355700FB5B27 /* BusinessIntelligence-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusinessIntelligence-Bridging-Header.h"; sourceTree = "<group>"; };
+		80E7160726C4386D00FB5B27 /* RNChartManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNChartManager.m; sourceTree = "<group>"; };
+		80E7160D26C439CF00FB5B27 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		80E7161326C61A3800FB5B27 /* RevenueEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueEntry.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BusinessIntelligence/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8679A89AD1305793332ED708 /* Pods-BusinessIntelligence-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinessIntelligence-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusinessIntelligence-tvOS/Pods-BusinessIntelligence-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		919B0702AA3405DACA3CE418 /* Pods-BusinessIntelligence-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinessIntelligence-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusinessIntelligence-tvOS/Pods-BusinessIntelligence-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +139,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				80E715C426C4355700FB5B27 /* BusinessIntelligence-Bridging-Header.h */,
+				80E7160726C4386D00FB5B27 /* RNChartManager.m */,
+				80E7160D26C439CF00FB5B27 /* BarChart.swift */,
+				80E7161326C61A3800FB5B27 /* RevenueEntry.swift */,
 			);
 			name = BusinessIntelligence;
 			sourceTree = "<group>";
@@ -295,7 +306,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -669,6 +680,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E7160826C4386D00FB5B27 /* RNChartManager.m in Sources */,
+				80E7161426C61A3800FB5B27 /* RevenueEntry.swift in Sources */,
+				80E7160E26C439CF00FB5B27 /* BarChart.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -711,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 942F745BDA05AC073313F2B4 /* Pods-BusinessIntelligence-BusinessIntelligenceTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -734,6 +749,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 635CB83FC3FDBC377E8A9BDA /* Pods-BusinessIntelligence-BusinessIntelligenceTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = BusinessIntelligenceTests/Info.plist;
@@ -767,6 +783,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BusinessIntelligence;
+				SWIFT_OBJC_BRIDGING_HEADER = "BusinessIntelligence-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -789,6 +806,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BusinessIntelligence;
+				SWIFT_OBJC_BRIDGING_HEADER = "BusinessIntelligence-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

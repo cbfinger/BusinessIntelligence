@@ -10,7 +10,12 @@ export default StyleSheet.create({
 
     chartWrapper:{
         height:'40%',
-        backgroundColor:'black'
+        padding:10
+    },
+
+    chart: {
+        width: '100%',
+        height:'100%'
     },
 
     contentWrapper: {
@@ -27,7 +32,6 @@ export default StyleSheet.create({
     },
 
     listItem: {
-        padding: 10,
         backgroundColor: '#F0EDE4'
     },
 

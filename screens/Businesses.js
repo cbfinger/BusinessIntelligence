@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { FlatList, View, Text} from 'react-native';
 import { ListItem} from 'react-native-elements';
-import NumberFormat from 'react-number-format';
 import companies from '../data.json';
 import styles from '../styles/businessesStyles'
 import BusinessUtils from '../utils/BusinessUtils'
