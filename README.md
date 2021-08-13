@@ -1,15 +1,8 @@
-The `data.json` file contains business data you can use to populate the list and details.
+The following modules are required to run my project
 
-You may need to download Xcode 12.4 for the code to compile. https://developer.apple.com/download/more/
+"moment": "^2.29.1",
+"react-native-elements": "^3.4.2",
+"react-native-vector-icons": "^8.1.0",
+"react-number-format": "^4.7.3"
 
-If you run into any configuration or build tool issues, feel free to reach out. 
-
-#### Some useful links:
-- https://reactnative.dev/docs/getting-started
-- https://reactnative.dev/docs/environment-setup
-- https://reactnative.dev/docs/native-components-ios
-- https://reactnative.dev/docs/native-components-android
-- https://reactnavigation.org/docs/getting-started
-- https://github.com/PhilJay/MPAndroidChart 
-- https://github.com/danielgindi/Charts
-- https://mockaroo.com/ 
+You will need to do a pod install as I installed the Chart library via Cocapods
