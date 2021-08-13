@@ -1,4 +1,4 @@
-This was my first ever attempt at anything React Native. I enjoyed the framework and found it rather easy to gets started an move quickly when putting together a quick UI. I found the more challenging part to be the using the 'Charts' framework in a Native Module. I choose to do in iOS and Swift to challenge myself as I havent written a lot of Swift code and I am more familiar with Kotlin. Thank you for this opportunity and I am excited for potential next steps.
+This was my first ever attempt at anything React Native. I enjoyed the framework and found it rather easy to gets started an move quickly when putting together a quick UI. I found the most challenging part to be writing and using the 'Charts' framework in a Native Module. I decided to do the project in iOS/Swift to challenge myself. I havent written a lot of Swift code recently (within the last 3 years) and I am more familiar with Kotlin. I wanted to display that I am quick learner and I enjoy a challenge. Thank you for this opportunity and I am excited for potential next steps.
 
 - Bryce Finger
 
